@@ -1,24 +1,11 @@
-name: Node.js CI
+name: Next.js with Docker
 
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: self-hosted
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+  test:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build --if-present
-    - run: pm2 reload next-js
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      - name: Docker compose Build - Next
+        run: docker-compose up -d --build
