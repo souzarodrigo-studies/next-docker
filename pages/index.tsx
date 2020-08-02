@@ -3,6 +3,14 @@ import Head from 'next/head';
 import GlobalStyle from '@styles/GlobalStyle.ts';
 import { Container, SubContainer, Footer, Main, Title } from '@styles/Index.ts';
 
+/**
+ *
+ * @author Rodrigo Santos de Souza
+ * @description Pagina index do projeto
+ *
+ * @returns react - web page
+ *
+ */
 export default function Index() {
   return (
     <>
