@@ -8,6 +8,7 @@
     "start": "next start",
     "test": "jest",
     "docker:up": "docker-compose up --build",
+    "docker:build": "docker-compose up -d --build",
     "docker:down": "docker-compose down"
   },
   "dependencies": {
@@ -51,7 +52,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test",
+      "pre-commit": "yarn docker:build",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
